@@ -1,16 +1,19 @@
-import { Button } from 'bootstrap';
-import './App.css';
-import Prueba from './components/prueba'
-import MyNavbar from './components/mynavbar';
-
-const  App = () => {
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRouter from "./config/router";
+import MyNavBar from "./components/UI/MyNavbar";
+import Footer from "./components/UI/Footer";
+const App = () => {
   return (
-    <div className="App">
-      <MyNavbar />
-      <Prueba />
-      
-    </div>
+    <Router>
+      <div>
+        <MyNavBar />
+        <AppRouter />
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
