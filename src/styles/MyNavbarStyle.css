@@ -1,8 +1,8 @@
 .custom-navbar {
-  padding: 20px 20px;
+  padding: 20px 20px !important;
   border-radius: 20px;
   background-color: #f0f0f3;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15),
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2),
     -8px -8px 15px rgba(255, 255, 255, 0.7);
 }
 
@@ -17,25 +17,25 @@
   background: none;
 }
 .custom-icon {
-  color: #2c3e50;
-  background-color: #f0f0f3;
-  padding: 10px;
-  border-radius: 50%;
+  color: #2c3e50 !important;
+  background-color: #f0f0f3 !important;
+  padding: 10px !important;
+  border-radius: 50% !important;
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
-    -8px -8px 15px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease;
-  border: none;
-  outline: none;
+    -8px -8px 15px rgba(255, 255, 255, 0.7) !important;
+  transition: transform 0.3s ease !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .custom-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
 }
 
 .custom-icon:focus,
 .custom-icon:active {
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
-    -8px -8px 15px rgba(255, 255, 255, 0.7);
+    -8px -8px 15px rgba(255, 255, 255, 0.7) !important;
 }
