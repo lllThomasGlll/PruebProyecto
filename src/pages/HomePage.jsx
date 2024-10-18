@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 
+import "../styles/HomePageStyle.css";
+
 import FeatureCard from "../components/UI/FeatureCard";
 
 import worldProblems from "../assets/word_problems.gif";
@@ -53,8 +55,7 @@ const App = () => {
   return (
     <>
       {/* Contenido de las tarjetas de funcionalidades */}
-      <Container>
-        <h1 className="text-center my-4">Mi Página de Matemáticas</h1>
+      <Container className="container-home">
         <Row>
           {features.map((feature, index) => (
             <FeatureCard

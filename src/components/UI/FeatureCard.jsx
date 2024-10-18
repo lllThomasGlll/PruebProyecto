@@ -8,7 +8,7 @@ const FeatureCard = ({ title, description, image, link }) => {
     <Col xs={12} sm={6} md={4} className="mb-4">
       <Link to={link} style={{ textDecoration: "none" }}>
         <Card className="custom-card">
-          {image && <Card.Img variant="top" fluid src={image} />}
+          {image && <Card.Img className="custom-img" variant="top" fluid src={image} />}
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>

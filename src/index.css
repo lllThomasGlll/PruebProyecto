@@ -1,6 +1,5 @@
 body {
-  background-image: url("./assets/Fondo.jpeg");
+  background-image: url("./assets/Fondo.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
