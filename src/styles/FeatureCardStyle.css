@@ -1,14 +1,14 @@
 .custom-card {
-  background-color: #f0f0f3;
   padding: 20px;
-  border-radius: 16px !important;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
-    -8px -8px 15px rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
   text-align: center;
   border: none !important;
   outline: none !important;
-  overflow: hidden;
+  border-radius: 16px !important;
+  background-color: #f0f0f3;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1),
+    -8px -8px 15px rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .custom-card:hover {

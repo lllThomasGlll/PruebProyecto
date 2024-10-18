@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 
-import "../../styles/FooterStyle.css"; // Archivo CSS para el estilo del footer
+import "../../styles/FooterStyle.css";
 
 import logo1 from "../../assets/PascualBravo.png";
 import logo2 from "../../assets/GeoGebra.png";

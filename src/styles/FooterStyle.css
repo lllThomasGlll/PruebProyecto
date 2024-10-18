@@ -1,8 +1,8 @@
 .footer {
   padding: 40px 0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); /* Sombra suave */
   border-radius: 16px 16px;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .footer-logo {
@@ -10,7 +10,5 @@
 }
 
 .footer-logo:hover {
-  transform: scale(
-    1.05
-  ); /* Efecto de agrandar ligeramente los logos al hacer hover */
+  transform: scale(1.05);
 }
