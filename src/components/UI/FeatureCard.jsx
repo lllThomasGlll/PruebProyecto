@@ -19,7 +19,7 @@ const FeatureCard = ({ title, description, image, staticImage, link }) => {
               className="custom-img"
               variant="top"
               fluid
-              src={isHovered ? image : staticImage} // Cambia la imagen según el estado
+              src={isHovered ? image : staticImage} 
             />
           )}
           <Card.Body>

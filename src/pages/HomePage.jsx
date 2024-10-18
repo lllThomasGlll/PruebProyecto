@@ -30,7 +30,7 @@ const App = () => {
     },
     {
       title: "Geometría",
-      description: "Resolver problemas geométricos y dibujar formas.",
+      description: "Resolver problemas geométricos.",
       image: geometry,
       staticImage: geometryPng,
       link: "/geometria",
@@ -57,7 +57,7 @@ const App = () => {
       link: "/calculadoras",
     },
     {
-      title: "Problemas de palabras",
+      title: "Problemas",
       description: "Soluciones a problemas matemáticos.",
       image: workSheets,
       staticImage: workSheetsPng,
