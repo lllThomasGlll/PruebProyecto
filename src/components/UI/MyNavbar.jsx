@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "../../styles/MyNavbarStyle.css";
 
@@ -16,16 +17,16 @@ const MyNavbar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="nav-link-custom">
+            <Nav.Link as={Link} to="/" className="nav-link-custom">
               GeoBravo
             </Nav.Link>
-            <Nav.Link href="#link" className="nav-link-custom">
+            <Nav.Link as={Link} to="/resources" className="nav-link-custom">
               Recursos
             </Nav.Link>
-            <Nav.Link href="#about" className="nav-link-custom">
+            <Nav.Link as={Link} to="/us" className="nav-link-custom">
               Nosotros
             </Nav.Link>
-            <Nav.Link href="#contact" className="nav-link-custom">
+            <Nav.Link as={Link} to="/about" className="nav-link-custom">
               Acerca de
             </Nav.Link>
           </Nav>
