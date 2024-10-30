@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 
-
 import "../styles/HomePageStyle.css";
 
 import FeatureCard from "../components/UI/FeatureCard";
@@ -22,6 +21,13 @@ import graphingPng from "../assets/graphing.png";
 
 const App = () => {
   const features = [
+    {
+      title: "Funciones lineales",
+      description: "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
+      image: worldProblems,
+      staticImage: worldProblemsPng,
+      link: "/lineal",
+    },
     {
       title: "Hojas de trabajo",
       description: "Generar hojas de trabajo para diversos temas.",
@@ -49,13 +55,6 @@ const App = () => {
       image: solutionStep,
       staticImage: solutionStepPng,
       link: "/graphics",
-    },
-    {
-      title: "Calculadoras",
-      description: "Calculadoras para diferentes áreas.",
-      image: worldProblems,
-      staticImage: worldProblemsPng,
-      link: "/calculators",
     },
     {
       title: "Problemas",
