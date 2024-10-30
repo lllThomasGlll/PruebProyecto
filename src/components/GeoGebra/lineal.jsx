@@ -30,16 +30,22 @@ const Lineal = () => {
           <GeoGebraApplet onLoad={handleLoad} />
         </Col>
         <Col xs={12} sm={6} md={4}>
-          <input
-            type="text"
-            value={functionInput}
-            onChange={handleInputChange}
-            placeholder="Ingresa una función lineal (ej. 2x+3)"
-            className="form-control mb-2"
-          />
-          <button onClick={handleButtonClick} className="btn btn-primary">
-            Graficar
-          </button>
+          <Row className="align-items-center">
+            <Col xs={8} sm={8} md={8}>
+              <input
+                type="text"
+                value={functionInput}
+                onChange={handleInputChange}
+                placeholder="Ingresa una función lineal (ej. 2x+3)"
+                className="form-control"
+              />
+            </Col>
+            <Col xs={4} sm={4} md={4}>
+              <button onClick={handleButtonClick} className="btn btn-primary">
+                Graficar
+              </button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>
