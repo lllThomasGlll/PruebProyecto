@@ -1,3 +1,26 @@
+.title-graphic {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 30px;
+}
+
+@media (max-width: 991px) {
+  .title-graphic {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title-graphic {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 575px) {
+  .title-graphic {
+    font-size: 20px;
+  }
+}
 .ggb-container {
   overflow: hidden;
   border: 1px solid #ccc;
@@ -37,4 +60,11 @@
 .button-graphic:hover {
   color: #2c3e50 !important;
   background-color: #ffff !important;
+}
+
+.button-add-input {
+  background-color: transparent;
+  border: none;
+  color: #2c3e50;
+  font-weight: 600;
 }
