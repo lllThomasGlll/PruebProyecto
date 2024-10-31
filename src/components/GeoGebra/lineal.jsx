@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
-
 import { Container, Row, Col } from "react-bootstrap";
-
 import GeoGebraApplet from "./GeoGebraApplet";
+
+import "../../styles/AppletStyle.css";
 
 const Lineal = () => {
   const [functionInput, setFunctionInput] = useState("");
@@ -24,24 +24,29 @@ const Lineal = () => {
   };
 
   return (
-    <Container fluid>
-      <Row>
-        <Col xs={12} sm={6} md={8}>
-          <GeoGebraApplet onLoad={handleLoad} />
+    <Container fluid className="p-3">
+      <Row className="justify-content-center">
+        <Col xs={12} sm={12} md={8} className="d-flex justify-content-center">
+          <div className="ggb-container">
+            <GeoGebraApplet onLoad={handleLoad} />
+          </div>
         </Col>
-        <Col xs={12} sm={6} md={4}>
-          <Row className="align-items-center">
-            <Col xs={8} sm={8} md={8}>
+        <Col xs={12} sm={12} md={4}>
+          <Row className="align-items-center p-3">
+            <Col xs={12} sm={12} md={12} className="mb-3">
               <input
                 type="text"
                 value={functionInput}
                 onChange={handleInputChange}
                 placeholder="Ingresa una función lineal (ej. 2x+3)"
-                className="form-control"
+                className="input-graphic w-100"
               />
             </Col>
-            <Col xs={4} sm={4} md={4}>
-              <button onClick={handleButtonClick} className="btn btn-primary">
+            <Col xs={12} sm={12} md={12} className="mb-3">
+              <button
+                onClick={handleButtonClick}
+                className="button-graphic btn btn-primary w-100"
+              >
                 Graficar
               </button>
             </Col>
