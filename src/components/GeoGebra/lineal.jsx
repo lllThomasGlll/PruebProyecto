@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaRegPlusSquare } from "react-icons/fa";
+import { FaRegPlusSquare, FaTrash } from "react-icons/fa";
 import { PiGraph } from "react-icons/pi";
 import GeoGebraApplet from "./GeoGebraApplet";
+import MathInput from "react-math-keyboard";
 
 import "../../styles/AppletStyle.css";
 
@@ -56,6 +57,22 @@ const Lineal = () => {
     ]);
   };
 
+  const handleKeyboardInput = (id, value) => {
+    handleInputChange(id, value);
+  };
+
+  const handleDeleteInput = (id) => {
+    if (inputs.length > 1) {
+      if (ggbApplet) {
+        const appletObject = ggbApplet.getAppletObject();
+        if (appletObject && appletObject.evalCommand) {
+          appletObject.evalCommand(`Delete[f${id}]`);
+        }
+      }
+      setInputs((prevInputs) => prevInputs.filter((input) => input.id !== id));
+    }
+  };
+
   return (
     <Container fluid className="p-3 mb-5">
       <Row>
@@ -73,18 +90,38 @@ const Lineal = () => {
           <Row className="align-items-center p-3">
             {inputs.map((input) => (
               <Col xs={12} key={input.id} className="mb-2">
-                <input
-                  type="text"
-                  value={input.value}
-                  onChange={(e) => handleInputChange(input.id, e.target.value)}
-                  placeholder={`Ingresa una función lineal (ej. 2x+3)`}
-                  className={`input-graphic w-100 ${
-                    input.error ? "input-error" : ""
-                  }`}
-                />
-                {input.error && (
-                  <div className="text-error">{input.error}</div>
-                )}
+                <div className="text-placeholder">
+                  Ingresa una función lineal (ej. 2x+3)
+                </div>
+                <Row className="align-items-center">
+                  <Col xs={inputs.length > 1 ? 10 : 12}>
+                    <div
+                      className={`input-graphic w-100 ${
+                        input.error ? "input-error" : ""
+                      }`}
+                    >
+                      <MathInput
+                        setValue={(value) =>
+                          handleKeyboardInput(input.id, value)
+                        }
+                        onChange={(e) =>
+                          handleInputChange(input.id, e.target.value)
+                        }
+                      />
+                    </div>
+                  </Col>
+                  {inputs.length > 1 && (
+                    <Col xs={2}>
+                      <button
+                        onClick={() => handleDeleteInput(input.id)}
+                        className="button-delete-input"
+                      >
+                        <FaTrash size={20} />
+                      </button>
+                    </Col>
+                  )}
+                </Row>
+                {input.error && <div className="text-error">{input.error}</div>}
               </Col>
             ))}
             <Col xs={12} className="d-flex justify-content-start mb-3">
