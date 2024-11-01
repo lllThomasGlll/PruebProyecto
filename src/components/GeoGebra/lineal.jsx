@@ -7,26 +7,44 @@ import GeoGebraApplet from "./GeoGebraApplet";
 import "../../styles/AppletStyle.css";
 
 const Lineal = () => {
-  const [inputs, setInputs] = useState([{ id: 1, value: "" }]);
+  const [inputs, setInputs] = useState([{ id: 1, value: "", error: "" }]);
   const [ggbApplet, setGgbApplet] = useState(null);
 
   const handleLoad = useCallback((applet) => setGgbApplet(applet), []);
 
   const handleInputChange = (id, value) => {
     setInputs((prevInputs) =>
-      prevInputs.map((input) => (input.id === id ? { ...input, value } : input))
+      prevInputs.map((input) =>
+        input.id === id ? { ...input, value, error: "" } : input
+      )
     );
+  };
+
+  const isLinearFunction = (func) => {
+    const linearRegex = /^[+-]?\d*x([+-]\d+)?$/;
+    return linearRegex.test(func.replace(/\s+/g, ""));
   };
 
   const handleButtonClick = () => {
     if (ggbApplet) {
       const appletObject = ggbApplet.getAppletObject();
       if (appletObject && appletObject.evalCommand) {
-        inputs.forEach((input) => {
-          if (input.value) {
-            appletObject.evalCommand(`f${input.id}(x)=${input.value}`);
-          }
-        });
+        setInputs((prevInputs) =>
+          prevInputs.map((input) => {
+            if (input.value) {
+              if (isLinearFunction(input.value)) {
+                appletObject.evalCommand(`f${input.id}(x)=${input.value}`);
+                return { ...input, error: "" };
+              } else {
+                return {
+                  ...input,
+                  error: "Por favor, ingresa una función lineal.",
+                };
+              }
+            }
+            return input;
+          })
+        );
       }
     }
   };
@@ -34,7 +52,7 @@ const Lineal = () => {
   const handleAddInput = () => {
     setInputs((prevInputs) => [
       ...prevInputs,
-      { id: prevInputs.length + 1, value: "" },
+      { id: prevInputs.length + 1, value: "", error: "" },
     ]);
   };
 
@@ -60,8 +78,13 @@ const Lineal = () => {
                   value={input.value}
                   onChange={(e) => handleInputChange(input.id, e.target.value)}
                   placeholder={`Ingresa una función lineal (ej. 2x+3)`}
-                  className="input-graphic w-100"
+                  className={`input-graphic w-100 ${
+                    input.error ? "input-error" : ""
+                  }`}
                 />
+                {input.error && (
+                  <div className="text-error">{input.error}</div>
+                )}
               </Col>
             ))}
             <Col xs={12} className="d-flex justify-content-start mb-3">
