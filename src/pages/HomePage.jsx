@@ -23,31 +23,34 @@ const App = () => {
   const features = [
     {
       title: "Funciones lineales",
-      description: "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
+      description:
+        "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
       image: worldProblems,
       staticImage: worldProblemsPng,
       link: "/lineal",
     },
     {
-      title: "Hojas de trabajo",
-      description: "Generar hojas de trabajo para diversos temas.",
+      title: "Funciones Cuadráticas",
+      description:
+        "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
       image: calculators,
       staticImage: calculatorsPng,
-      link: "/worksheets",
+      link: "/Quadratic",
     },
     {
-      title: "Geometría",
-      description: "Resolver problemas geométricos.",
+      title: "Funciones Cubicas",
+      description:
+        "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
       image: geometry,
       staticImage: geometryPng,
-      link: "/geometry",
+      link: "/Cubic",
     },
     {
-      title: "Pasos de solución",
+      title: "Curvas",
       description: "Solucionador en un paso a paso para problemas.",
       image: graphing,
       staticImage: graphingPng,
-      link: "/solutionSteps",
+      link: "/Curve",
     },
     {
       title: "Gráficos",
