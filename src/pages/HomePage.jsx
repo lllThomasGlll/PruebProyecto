@@ -32,7 +32,7 @@ const App = () => {
     {
       title: "Funciones Cuadráticas",
       description:
-        "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
+        "Ingresa una función cuadrática para ver su representación gráfica en el plano cartesiano. ",
       image: calculators,
       staticImage: calculatorsPng,
       link: "/Quadratic",
@@ -40,7 +40,7 @@ const App = () => {
     {
       title: "Funciones Cubicas",
       description:
-        "Ingresa una función lineal para ver su representación gráfica en el plano cartesiano. ",
+        "Ingresa una función cúbica para ver su representación gráfica en el plano cartesiano. ",
       image: geometry,
       staticImage: geometryPng,
       link: "/Cubic",

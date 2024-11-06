@@ -36,35 +36,35 @@ const MyNavbar = () => {
             <Nav className="me-auto" onSelect={handleSelect}>
               <Nav.Link
                 as={Link}
+                to="/lineal"
+                className="nav-link-custom"
+                onClick={handleSelect}
+              >
+                Funciones Lineales
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/Quadratic"
+                className="nav-link-custom"
+                onClick={handleSelect}
+              >
+                Funciones Cuadráticas
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/Cubic"
+                className="nav-link-custom"
+                onClick={handleSelect}
+              >
+                Funciones Cúbicas
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
                 to="/"
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
-                GeoBravo
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="/resources"
-                className="nav-link-custom"
-                onClick={handleSelect}
-              >
-                Recursos
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="/us"
-                className="nav-link-custom"
-                onClick={handleSelect}
-              >
-                Nosotros
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                className="nav-link-custom"
-                onClick={handleSelect}
-              >
-                Acerca de
+                Área entre curvas
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
