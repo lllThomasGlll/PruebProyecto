@@ -50,7 +50,7 @@ const App = () => {
       description: "Solucionador en un paso a paso para problemas.",
       image: graphing,
       staticImage: graphingPng,
-      link: "/Curve",
+      link: "/Curves",
     },
     {
       title: "Gráficos",
