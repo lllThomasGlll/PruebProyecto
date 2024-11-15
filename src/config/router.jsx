@@ -6,6 +6,7 @@ import Lineal from "../components/GeoGebra/lineal";
 import Quadratic from "../components/GeoGebra/Quadratic";
 import Cubic from "../components/GeoGebra/Cubic";
 import OneCurve from "../components/GeoGebra/OneCurve";
+import TwoCurves from "../components/GeoGebra/TwoCurves";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/Quadratic" element={<Quadratic />} />
       <Route path="/Cubic" element={<Cubic />} />
       <Route path="/OneCurve" element={<OneCurve />} />
+      <Route path="/TwoCurves" element={<TwoCurves />} />
     </Routes>
   );
 };
