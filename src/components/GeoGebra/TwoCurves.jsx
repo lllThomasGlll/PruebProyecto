@@ -11,7 +11,6 @@ const TwoCurves = () => {
     { id: 1, value: "", error: "" },
     { id: 2, value: "", error: "" },
   ]);
-  const [limits, setLimits] = useState({ lowerLimit: 0, upperLimit: 1 });
   const [ggbApplet, setGgbApplet] = useState(null);
 
   const handleLoad = useCallback((applet) => setGgbApplet(applet), []);
@@ -24,32 +23,11 @@ const TwoCurves = () => {
     );
   };
 
-  const handleLimitChange = (limitType, value) => {
-    setLimits((prevLimits) => ({ ...prevLimits, [limitType]: value }));
-  };
-
   const handleButtonClick = () => {
-    // const isValidCurve = (func) => {
-    //   // Check if the function is a polynomial of degree greater than 1
-    //   const polynomialRegex =
-    //     /^[+-]?(\d*x(\^\d+)?)([+-]\d*x(\^\d+)?)*([+-]\d+)?$/;
-    //   const degreeRegex = /\^(\d+)/;
-    //   const matches = func.match(degreeRegex);
-    //   const degree = matches ? parseInt(matches[1], 10) : 1;
-    //   return polynomialRegex.test(func.replace(/\s+/g, "")) && degree > 1;
-    // };
-
     let valid = true;
 
     setInputs((prevInputs) =>
       prevInputs.map((input) => {
-        // if (!isValidCurve(input.value)) {
-        // valid = false;
-        // return {
-        //   ...input,
-        //   error: "Función no válida. Ingrese una curva.",
-        // };
-        // }
         return { ...input, error: "" };
       })
     );
@@ -68,11 +46,18 @@ const TwoCurves = () => {
           }
         });
 
-        // Calcular el área entre las dos curvas
-        const { lowerLimit, upperLimit } = limits;
-        appletObject.evalCommand(
-          `IntegralBetween[f1, f2, ${lowerLimit}, ${upperLimit}]`
-        );
+        // Encontrar los puntos de intersección
+        appletObject.evalCommand("Intersect[f1, f2]");
+        const intersections = appletObject.getAllObjectNames("Point");
+
+        // Calcular el área entre las curvas en cada intervalo
+        for (let i = 0; i < intersections.length - 1; i++) {
+          const lowerLimit = appletObject.getXcoord(intersections[i]);
+          const upperLimit = appletObject.getXcoord(intersections[i + 1]);
+          appletObject.evalCommand(
+            `IntegralBetween[f1, f2, ${lowerLimit}, ${upperLimit}]`
+          );
+        }
       }
     }
   };
@@ -116,28 +101,6 @@ const TwoCurves = () => {
                 {input.error && <div className="text-error">{input.error}</div>}
               </Col>
             ))}
-            <Col xs={6} sm={6} md={6} className="align-items-center mt-2">
-              <div className="text-placeholder">Límite inferior</div>
-              <input
-                type="number"
-                value={limits.lowerLimit}
-                onChange={(e) =>
-                  handleLimitChange("lowerLimit", e.target.value)
-                }
-                className="input-graphic w-100"
-              />
-            </Col>
-            <Col xs={6} sm={6} md={6} className="align-items-center mt-2">
-              <div className="text-placeholder">Límite superior</div>
-              <input
-                type="number"
-                value={limits.upperLimit}
-                onChange={(e) =>
-                  handleLimitChange("upperLimit", e.target.value)
-                }
-                className="input-graphic w-100"
-              />
-            </Col>
             <Col xs={12} className="mt-3">
               <button
                 onClick={handleButtonClick}
