@@ -22,8 +22,11 @@ const Cubic = () => {
   };
 
   const isCubicFunction = (func) => {
-    const cubicRegex = /^[+-]?\d*x\^3([+-]\d*x\^2)?([+-]\d*x)?([+-]\d+)?$/;
-    return cubicRegex.test(func.replace(/\s+/g, ""));
+    const terms = func.replace(/\s+/g, "").split(/(?=[+-])/);
+    const hasCubicTerm = terms.some((term) => /x\^3/.test(term));
+    return (
+      hasCubicTerm && terms.every((term) => /^[+-]?\d*x?(\^3|\^2)?$/.test(term))
+    );
   };
 
   const handleButtonClick = () => {
@@ -91,7 +94,7 @@ const Cubic = () => {
             {inputs.map((input) => (
               <Col xs={12} key={input.id} className="mb-2">
                 <div className="text-placeholder">
-                  Ingresa una función cúbica (ej. 2x^3+3x^2+4x+5)
+                  Ingresa una función cúbica (ej. 2x³+3x²+4x+5)
                 </div>
                 <Row className="align-items-center">
                   <Col xs={inputs.length > 1 ? 10 : 12}>

@@ -22,8 +22,9 @@ const Quadratic = () => {
   };
 
   const isQuadraticFunction = (func) => {
-    const quadraticRegex = /^[+-]?\d*x\^2([+-]\d*x)?([+-]\d+)?$/;
-    return quadraticRegex.test(func.replace(/\s+/g, ""));
+    const terms = func.replace(/\s+/g, "").split(/(?=[+-])/);
+    const hasQuadraticTerm = terms.some(term => /x\^2/.test(term));
+    return hasQuadraticTerm && terms.every(term => /^[+-]?\d*x?(\^2)?$/.test(term));
   };
 
   const handleButtonClick = () => {
@@ -91,7 +92,7 @@ const Quadratic = () => {
             {inputs.map((input) => (
               <Col xs={12} key={input.id} className="mb-2">
                 <div className="text-placeholder">
-                  Ingresa una función cuadrática (ej. 2x^2+3x+1)
+                  Ingresa una función cuadrática (ej. 2x²+3x+1)
                 </div>
                 <Row className="align-items-center">
                   <Col xs={inputs.length > 1 ? 10 : 12}>

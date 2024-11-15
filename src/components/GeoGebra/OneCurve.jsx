@@ -7,7 +7,7 @@ import MathInput from "react-math-keyboard";
 
 import "../../styles/AppletStyle.css";
 
-const Curve = () => {
+const OneCurve = () => {
   const [inputs, setInputs] = useState([
     { id: 1, value: "", error: "", lowerLimit: 0, upperLimit: 1 },
   ]);
@@ -32,16 +32,45 @@ const Curve = () => {
   };
 
   const handleButtonClick = () => {
+    const isValidCurve = (func) => {
+      // Check if the function is a polynomial of degree greater than 1
+      const polynomialRegex =
+        /^[+-]?(\d*x(\^\d+)?)([+-]\d*x(\^\d+)?)*([+-]\d+)?$/;
+      const degreeRegex = /\^(\d+)/;
+      const matches = func.match(degreeRegex);
+      const degree = matches ? parseInt(matches[1], 10) : 1;
+      return polynomialRegex.test(func.replace(/\s+/g, "")) && degree > 1;
+    };
+
+    let valid = true;
+
+    setInputs((prevInputs) =>
+      prevInputs.map((input) => {
+        if (!isValidCurve(input.value)) {
+          valid = false;
+          return {
+            ...input,
+            error: "Función no válida. Ingrese una curva.",
+          };
+        }
+        return { ...input, error: "" };
+      })
+    );
+
+    if (!valid) {
+      return; // No grafiques si alguna función no es válida
+    }
+
     if (ggbApplet) {
       const appletObject = ggbApplet.getAppletObject();
       if (appletObject && appletObject.evalCommand) {
         inputs.forEach((input) => {
           if (input.value) {
-            appletObject.evalCommand(`Delete[f${input.id}]`); // Eliminar la función anterior
-            appletObject.evalCommand(`f${input.id}(x)=${input.value}`); // Crear la nueva función
+            appletObject.evalCommand(`Delete[f${input.id}]`);
+            appletObject.evalCommand(`f${input.id}(x)=${input.value}`);
             appletObject.evalCommand(
               `Integral[f${input.id}, ${input.lowerLimit}, ${input.upperLimit}]`
-            ); // Calcular el área bajo la curva
+            );
           }
         });
       }
@@ -81,7 +110,7 @@ const Curve = () => {
     <Container fluid className="p-3 mb-5">
       <Row>
         <h3 className="title-graphic mb-5">
-          <PiGraph size={50} /> Área bajo la curva e Integrales
+          <PiGraph size={50} /> Área bajo la curva
         </h3>
       </Row>
       <Row className="justify-content-center">
@@ -95,7 +124,7 @@ const Curve = () => {
             {inputs.map((input) => (
               <Col xs={12} key={input.id} className="mb-2">
                 <div className="text-placeholder">
-                  Ingresa una función (ej. 2x^3+3x^2+4x+5)
+                  Ingresa una función (ej. 2x³+3x²+4x+5)
                 </div>
                 <Row className="align-items-center">
                   <Col xs={inputs.length > 1 ? 10 : 12}>
@@ -114,7 +143,6 @@ const Curve = () => {
                       />
                     </div>
                   </Col>
-                  
                   {inputs.length > 1 && (
                     <Col xs={2}>
                       <button
@@ -128,7 +156,7 @@ const Curve = () => {
                 </Row>
                 {input.error && <div className="text-error">{input.error}</div>}
                 <Row className="align-items-center mt-2">
-                  <Col xs={6}>
+                  <Col xs={inputs.length > 1 ? 5 : 6}>
                     <div className="text-placeholder">Límite inferior</div>
                     <input
                       type="number"
@@ -143,7 +171,7 @@ const Curve = () => {
                       className="input-graphic w-100"
                     />
                   </Col>
-                  <Col xs={6}>
+                  <Col xs={inputs.length > 1 ? 5 : 6}>
                     <div className="text-placeholder">Límite superior</div>
                     <input
                       type="number"
@@ -181,4 +209,4 @@ const Curve = () => {
   );
 };
 
-export default Curve;
+export default OneCurve;

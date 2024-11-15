@@ -8,14 +8,12 @@ import FeatureCard from "../components/UI/FeatureCard";
 import worldProblems from "../assets/word_problems.gif";
 import solutionStep from "../assets/solution-steps.gif";
 import calculators from "../assets/calculators.gif";
-import workSheets from "../assets/worksheets.gif";
 import geometry from "../assets/geometry.gif";
 import graphing from "../assets/graphing.gif";
 
 import worldProblemsPng from "../assets/word_problems.png";
 import solutionStepPng from "../assets/solution-steps.png";
 import calculatorsPng from "../assets/calculators.png";
-import workSheetsPng from "../assets/worksheets.png";
 import geometryPng from "../assets/geometry.png";
 import graphingPng from "../assets/graphing.png";
 
@@ -46,25 +44,18 @@ const App = () => {
       link: "/Cubic",
     },
     {
-      title: "Curvas",
-      description: "Solucionador en un paso a paso para problemas.",
+      title: "Área bajo la curva",
+      description: "Calcula el área bajo una función gráfica.",
       image: graphing,
       staticImage: graphingPng,
-      link: "/Curves",
+      link: "/OneCurve",
     },
     {
-      title: "Gráficos",
-      description: "Trazar funciones y analizar ecuaciones.",
+      title: "Área entre curvas",
+      description: "Determina el área entre dos funciones gráficas.",
       image: solutionStep,
       staticImage: solutionStepPng,
       link: "/graphics",
-    },
-    {
-      title: "Problemas",
-      description: "Soluciones a problemas matemáticos.",
-      image: workSheets,
-      staticImage: workSheetsPng,
-      link: "/problems",
     },
   ];
 
@@ -72,7 +63,7 @@ const App = () => {
     <>
       {/* Contenido de las tarjetas de funcionalidades */}
       <Container className="container-home">
-        <Row>
+        <Row className="justify-content-center">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
