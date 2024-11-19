@@ -1,6 +1,5 @@
-// src/config/router.js
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Lineal from "../components/GeoGebra/lineal";
 import Quadratic from "../components/GeoGebra/Quadratic";
@@ -10,14 +9,16 @@ import TwoCurves from "../components/GeoGebra/TwoCurves";
 
 const AppRouter = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/lineal" element={<Lineal />} />
-      <Route path="/Quadratic" element={<Quadratic />} />
-      <Route path="/Cubic" element={<Cubic />} />
-      <Route path="/OneCurve" element={<OneCurve />} />
-      <Route path="/TwoCurves" element={<TwoCurves />} />
-    </Routes>
+    <Router basename="/PruebaProyecto">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/lineal" element={<Lineal />} />
+        <Route path="/quadratic" element={<Quadratic />} />
+        <Route path="/cubic" element={<Cubic />} />
+        <Route path="/onecurve" element={<OneCurve />} />
+        <Route path="/twocurves" element={<TwoCurves />} />
+      </Routes>
+    </Router>
   );
 };
 
