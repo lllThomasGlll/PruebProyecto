@@ -21,7 +21,7 @@ const MyNavbar = () => {
         <Container>
           <Navbar.Brand
             as={Link}
-            to="/"
+            to="PruebaProyecto/"
             className="navbar-brand-custom"
             onClick={handleSelect}
           >
@@ -36,7 +36,7 @@ const MyNavbar = () => {
             <Nav className="me-auto" onSelect={handleSelect}>
               <Nav.Link
                 as={Link}
-                to="/lineal"
+                to="PruebaProyecto/Lineal"
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
@@ -44,7 +44,7 @@ const MyNavbar = () => {
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/Quadratic"
+                to="PruebaProyecto/Quadratic"
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
@@ -52,7 +52,7 @@ const MyNavbar = () => {
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/Cubic"
+                to="PruebaProyecto/Cubic"
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
@@ -60,7 +60,15 @@ const MyNavbar = () => {
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/"
+                to="PruebaProyecto/Onecurve"
+                className="nav-link-custom"
+                onClick={handleSelect}
+              >
+                Área bajo la curva
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="PruebaProyecto/Twocurves"
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
