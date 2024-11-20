@@ -55,7 +55,7 @@ const App = () => {
       description: "Determina el área entre dos funciones gráficas.",
       image: solutionStep,
       staticImage: solutionStepPng,
-      link: "/TwoCurves",
+      link: "PruebaProyecto/twocurves",
     },
   ];
 
