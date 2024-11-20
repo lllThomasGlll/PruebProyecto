@@ -11,11 +11,11 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path="PruebaProyecto/" element={<HomePage />} />
-      <Route path="PruebaProyecto/lineal" element={<Lineal />} />
-      <Route path="PruebaProyecto/quadratic" element={<Quadratic />} />
-      <Route path="PruebaProyecto/cubic" element={<Cubic />} />
-      <Route path="PruebaProyecto/onecurve" element={<OneCurve />} />
-      <Route path="PruebaProyecto/twocurves" element={<TwoCurves />} />
+      <Route path="PruebaProyecto/Lineal" element={<Lineal />} />
+      <Route path="PruebaProyecto/Quadratic" element={<Quadratic />} />
+      <Route path="PruebaProyecto/Cubic" element={<Cubic />} />
+      <Route path="PruebaProyecto/Onecurve" element={<OneCurve />} />
+      <Route path="PruebaProyecto/Twocurves" element={<TwoCurves />} />
     </Routes>
   );
 };
