@@ -74,7 +74,7 @@ const MyNavbar = () => {
       {/* Botón debajo del Navbar */}
       {showBackButton && (
         <Container fluid className="back-button-container">
-          <Button className="back-button" onClick={() => navigate("/PruebaProyecto/")}>
+          <Button className="back-button" onClick={() => navigate("PruebaProyecto/")}>
             <IoIosArrowBack size={35} />
             Volver
           </Button>
