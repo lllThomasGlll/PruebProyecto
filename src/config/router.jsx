@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Lineal from "../components/GeoGebra/lineal";
 import Quadratic from "../components/GeoGebra/Quadratic";
@@ -9,7 +14,9 @@ import TwoCurves from "../components/GeoGebra/TwoCurves";
 
 const AppRouter = () => {
   return (
-    <Router basename="/PruebaProyecto">
+    <BrowserRouter>
+      {" "}
+      {/* Cambié Router por BrowserRouter */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/lineal" element={<Lineal />} />
@@ -18,7 +25,7 @@ const AppRouter = () => {
         <Route path="/onecurve" element={<OneCurve />} />
         <Route path="/twocurves" element={<TwoCurves />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
 
