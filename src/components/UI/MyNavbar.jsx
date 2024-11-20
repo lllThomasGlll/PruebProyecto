@@ -13,7 +13,7 @@ const MyNavbar = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const showBackButton = location.pathname !== "PruebaProyecto/";
+  const showBackButton = location.pathname !== "/PruebaProyecto";
 
   return (
     <>
