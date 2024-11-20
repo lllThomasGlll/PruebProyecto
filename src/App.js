@@ -6,7 +6,7 @@ import Footer from "./components/UI/Footer";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/PruebaProyecto">
       <div>
         <MyNavBar />
         <AppRouter />
