@@ -1,5 +1,6 @@
 body {
-  background-image: url("./assets/Fondo.jpg");
+  /* background-image: url("./assets/Fondo.jpg"); */
+  background-color: black;
   background-size: cover;
   background-position: center;
 }
