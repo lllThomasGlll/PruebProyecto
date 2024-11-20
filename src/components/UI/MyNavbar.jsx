@@ -40,7 +40,7 @@ const MyNavbar = () => {
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
-                Funciones Lineales
+                Funciones lineales
               </Nav.Link>
               <Nav.Link
                 as={Link}
@@ -48,7 +48,7 @@ const MyNavbar = () => {
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
-                Funciones Cuadráticas
+                Funciones cuadráticas
               </Nav.Link>
               <Nav.Link
                 as={Link}
@@ -56,7 +56,7 @@ const MyNavbar = () => {
                 className="nav-link-custom"
                 onClick={handleSelect}
               >
-                Funciones Cúbicas
+                Funciones cúbicas
               </Nav.Link>
               <Nav.Link
                 as={Link}
