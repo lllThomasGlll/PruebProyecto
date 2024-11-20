@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Lineal from "../components/GeoGebra/lineal";
 import Quadratic from "../components/GeoGebra/Quadratic";
@@ -9,7 +9,7 @@ import TwoCurves from "../components/GeoGebra/TwoCurves";
 
 const AppRouter = () => {
   return (
-    <Router>
+    <Router basename="/PruebaProyecto">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/lineal" element={<Lineal />} />
